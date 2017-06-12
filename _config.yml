@@ -16,7 +16,7 @@ keep_files:
 # Site settings
 title: KOYANO CAMP
 #subtitle: "AWAJI-SHIMA"
-url: "http://yujikoyano.github.io" # the base hostname & protocol for your site
+url: "https://kcpj.github.io/awaji-groove/" # the base hostname & protocol for your site
 # baseurl: "/the/subpath/of/your/site" # Set this value to "" if you want your site to be root
 baseurl: "/awaji-groove"
 cover: "/assets/cover.png"
