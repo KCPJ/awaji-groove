@@ -195,7 +195,11 @@ permalink: /photos/
 </section>
 
 <script>
-  function addElement() {
+  // document.body.onload = addElement;
+  var isLoading = false;
+  function addElement () {
+    isLoading = true
+
     var newDiv = document.createElement("div");
     newDiv.className = "col-lg-4 col-sm-6"
 
@@ -206,6 +210,9 @@ permalink: /photos/
     newImg.className = "img-responsive"
     newImg.src = "https://drive.google.com/uc?export=view&id=0Byo54E7XPK3wTGJWTXVvdllTR1E"
     newImg.alt = ""
+    newImg.onload = function() {
+      isLoading = false
+    };
 
     newA.appendChild(newImg)
     newDiv.appendChild(newA)
@@ -214,21 +221,20 @@ permalink: /photos/
   }
 
   $(window).scroll(function(){
-
-    var targetPercentage = 95;
-
+    
+    var targetPercentage = 90;
+    
     //Window Math
     var scrollTo = $(window).scrollTop(),
     docHeight = $(document).height(),
     windowHeight = $(window).height();
     scrollPercent = (scrollTo / (docHeight-windowHeight)) * 100;
     scrollPercent = scrollPercent.toFixed(1);
-
-    if(scrollPercent < targetPercentage) {
-      addElement()
-      scrollPercent = 50
+      
+    if(scrollPercent > targetPercentage && !isLoading) {
+      addElement()      
     }
-
+                
   }).trigger('scroll');
 
 </script>
