@@ -7,7 +7,7 @@ permalink: /photos/
 <!-- Content Start -->
 <section class="no-padding" id="portfolio">
 
-<div class="container-fluid">
+<div class="container-fluid" id="wrapper">
 
     <div class="container">
       <div class="row">
@@ -191,6 +191,26 @@ permalink: /photos/
                 </a>
             </div>
 
-
     </div>
 </section>
+
+<script>
+  document.body.onload = addElement;
+  function addElement () {
+    var newDiv = document.createElement("div");
+    newDiv.className = "col-lg-4 col-sm-6"
+
+    var newA = document.createElement("a");
+    newA.className = "portfolio-box"
+
+    var newImg = document.createElement("img");
+    newImg.className = "img-responsive"
+    newImg.src = "https://drive.google.com/uc?export=view&id=0Byo54E7XPK3wTGJWTXVvdllTR1E"
+    newImg.alt = ""
+
+    newA.appendChild(newImg)
+    newDiv.appendChild(newA)
+
+    document.getElementById("wrapper").appendChild(newDiv)
+  }
+</script>
