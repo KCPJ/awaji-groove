@@ -195,8 +195,7 @@ permalink: /photos/
 </section>
 
 <script>
-  document.body.onload = addElement;
-  function addElement () {
+  function addElement() {
     var newDiv = document.createElement("div");
     newDiv.className = "col-lg-4 col-sm-6"
 
@@ -213,4 +212,23 @@ permalink: /photos/
 
     document.getElementById("wrapper").appendChild(newDiv)
   }
+
+  $(window).scroll(function(){
+
+    var targetPercentage = 95;
+
+    //Window Math
+    var scrollTo = $(window).scrollTop(),
+    docHeight = $(document).height(),
+    windowHeight = $(window).height();
+    scrollPercent = (scrollTo / (docHeight-windowHeight)) * 100;
+    scrollPercent = scrollPercent.toFixed(1);
+
+    if(scrollPercent < targetPercentage) {
+      addElement()
+      scrollPercent = 50
+    }
+
+  }).trigger('scroll');
+
 </script>
