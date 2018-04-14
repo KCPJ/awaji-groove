@@ -7,7 +7,7 @@ permalink: /photos/
 <!-- Content Start -->
 <section class="no-padding" id="portfolio" style="margin-top: -30px;">
 
-<div class="container-fluid" id="wrapper" style="padding-bottom: 300px; padding-top: 0px;">
+<div class="container-fluid" id="wrapper" style="padding-bottom: 1000px; padding-top: 0px;">
 
     <div class="container">
       <div class="row">
@@ -525,7 +525,7 @@ var random_ids = shuffleByES5(ids);
 
 var index = 0;
 
-  function addElement () {
+function addElement () {
 
     function hoge(addelm){
           if(index >= random_ids.length){
@@ -564,11 +564,15 @@ var index = 0;
     hoge(true);
   }
 
-addElement()
-setTimeout(function(){
-  var footer = document.getElementById("footer");
-  footer.hidden = true;
-}, 300)
+document.onreadystatechange = function () {
+  if (document.readyState === "complete") {
+        var footer = document.getElementById("footer");
+        footer.hidden = true;
+        var wrapper = document.getElementById("wrapper");
+        wrapper.setAttribute("style", "padding-bottom: 300px; padding-top: 0px;");
+        addElement()
+  }
+}
 
 
 </script>
