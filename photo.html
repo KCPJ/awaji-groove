@@ -5,7 +5,7 @@ permalink: /photos/
 ---
 
 <!-- Content Start -->
-<section class="no-padding" id="portfolio">
+<section class="no-padding" id="portfolio" style="margin-top: -30px;">
 
 <div class="container-fluid" id="wrapper" style="padding-bottom: 300px; padding-top: 0px;">
 
@@ -29,6 +29,7 @@ permalink: /photos/
     0% {opacity: 0}
     100% {opacity: 1}
 }
+
 </style>
 
 <script>
@@ -36,7 +37,7 @@ permalink: /photos/
  var ids = [
 "1bdGJ6w4tdcw9rSYqYU4xg8kBUqDsktwV",
 "1NMSlfkSK8zRWWXY93P_8Jk4fOgYLG-ec",
-"1fuVOKfEtl4J1SaWL31bKJmsUwJtdbZyW",
+"1fuVOKfEtl4J1SaWL31bKJmsUwJtdbZyW"
 "1LCFdPHMp8B6_lEEuKV6LpVMoO5bdoCPD",
 "1KWXbE89bqhjAXFkg0AelNiEuua0wdkhj",
 "1IvBAQ2N7d8C0Ii48I4nOiMfONhEYcH1Y",
@@ -527,6 +528,13 @@ var index = 0;
   function addElement () {
 
     function hoge(addelm){
+          if(index >= random_ids.length){
+            var footer = document.getElementById("footer");
+            footer.hidden = false;
+            var wrapper = document.getElementById("wrapper");
+            wrapper.setAttribute("style", "padding-bottom: 50px; padding-top: 0px;");
+          }
+
           var newDiv = document.createElement("div");
           newDiv.className = "col-lg-4 col-sm-6"
           newDiv.hidden = true;
@@ -554,7 +562,6 @@ var index = 0;
     }
 
     hoge(true);
-    hoge(false);
   }
 
 addElement()
